@@ -1,0 +1,68 @@
+5/6/2024 Meeting
+
+- Worked on Understanding and Building a RST Discourse Segmenter repository with an F1 Score of 97 compared to Soricut and Marcu's 85
+	- Is there online computing resource that I can access? Don't think I have the resources to train this.
+	- http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.135.pdf
+
+- I made a very simple proof-of-concept program that takes in simple statements, gets entity/relations triplets and graphs them.
+
+- Looking at how Fictional Discourse Units are Structured
+	- Still looking for more right now, but the main ones I see are just mainly things like
+	- <Frodo, has enemy, Sauron> and <Frodo, has friend, Sam> - KnowF https://openreview.net/pdf?id=8smkJ2ekBRC
+	- Similar -> https://cdn.aaai.org/ocs/ws/ws0271/15067-68456-1-PB.pdf
+	- Found an interesting thesis https://rinekeverbrugge.nl/wp-content/uploads/2017/01/thesisDouweTerluin2008.pdf
+		- Talks about the idea of a 'fabula' which is a knowledge structure containing events in fictional story.
+		- Lists types of relations, like "Event physically causes event", "Internal element motivates action"
+        - Fabula -> Vector Embedding
+    - Another interesting thesis http://www.cs.columbia.edu/~delson/pubs/Modeling-Narrative-Discourse_Elson_R4.pdf
+
+
+apps0.cs.toronto.edu for non cpu intensive 
+
+Your login: hectorchen
+Your name: Hector Chen
+Your email address: hector.chen@mail.utoronto.ca
+Sponsor: Gerald Penn
+Request status: Pending
+You are a: Undergraduate Student
+
+https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/32914/1/thesis-twoside-toprint.pdf
+http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.135.pdf
+
+
+Research Proposal: Iterative Knowledge Graphs from Fiction
+- Parsing: Parse Text into Discourse Units
+- Extraction: Extract Entities/Relations from Discourse Units
+- Evolution: Sequentially Updating Knowledge Graph with Entities/Relations
+
+Parsing: Professor Penn emphasized I should first work on parsing text into discourse units
+- I found a 'discourse-segmenter' GitHub repository that I think I got working, but when the model starts training, my laptop basically freezes
+- https://github.com/takshakpdesai/discourse-segmenter
+- Supposedly performs better (Section 4.1 of its paper) than Soricut/Marcu paper Professor Penn mentioned.
+
+Extraction: You mentioned we should discuss entity/relations of fictional text
+- What type of knowledge graph are we creating? https://arxiv.org/pdf/2310.04835.pdf
+- Found Cuong Xuan Chu's thesis on "Knowledge Extraction from Fictional Texts"
+- Involves Entyfi (Entity Extraction) and KnowFi (Relation Extraction)
+- Link to Entyfi: https://d5demos.mpi-inf.mpg.de/entyfi
+- Explain KnowFi: https://www.youtube.com/watch?v=GFTlUjdlreo
+
+Evolution: Kind of fuzzy on the part where you add the knolwedge unit (Entities/Relations) to Knowledge Graph one at a time
+- Dynamic Knowledge Graphs, Knowledge Graph Evolution. (Knowledge graph updates as new knowledge comes in)
+- How would a knowledge graph handle something like a plot twist or unreliable narrator in the fiction?
+
+https://github.com/IBM/Grapher (Text -> Knowledge Graph)
+https://arxiv.org/pdf/1810.05682.pdf (Procedural Text -> Dynamic Knowledge Graph)
+https://arxiv.org/pdf/2104.04909.pdf (Dynamic Knowledge Graph)
+https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Web_Data_Mining/pubs/ESWC2022_Franz-Krause.pdf (Dynamic Knowledge Graph)
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8057770 (Dynamic Knowledge Graph)
+
+
+no meeting on monday
+7:00 pm Zoom Next next monday
+
+https://aclanthology.org/N03-1030.pdf (Soricut/Marcu)
+https://aclanthology.org/P17-2029.pdf
+https://github.com/tungngthanh/rst_parser/tree/main
+https://github.com/arne-cl/spade-parser/tree/master
+https://github.com/yizhongw/StageDP
