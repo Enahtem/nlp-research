@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force-Directed Graph Result</title>
+    <!-- Include D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Add any custom styles for your graph here */
+    </style>
+</head>
+<body>
+    <svg width="800" height="600"></svg>
+    <script>
+        // Parse the graph data passed from Flask
+        var graph_data = JSON.parse('{{ graph_data | safe }}');
+    
+        // Create force simulation
+        var simulation = d3.forceSimulation(graph_data.nodes)
+            .force("link", d3.forceLink(graph_data.links).id(d => d.id))
+            .force("charge", d3.forceManyBody().strength(-100)) // Increased charge value for stronger repulsion
+            .force("center", d3.forceCenter(400, 300));
+    
+        // Append links
+        var link = d3.select("svg")
+            .selectAll("line")
+            .data(graph_data.links)
+            .enter().append("line")
+            .attr("stroke", "#999")
+            .attr("stroke-opacity", 0.6)
+            .attr("stroke-width", 1); // You may adjust the stroke width as needed
+    
+        // Append text on edges
+        var edgeText = d3.select("svg")
+            .selectAll("text")
+            .data(graph_data.links)
+            .enter().append("text")
+            .attr("class", "edge-text")
+            .text(d => d.label)  // Display relation label
+            .attr("dx", d => (d.source.x + d.target.x) / 2)
+            .attr("dy", d => (d.source.y + d.target.y) / 2)
+            .attr("text-anchor", "middle")
+            .attr("alignment-baseline", "middle");
+    
+        // Append nodes
+        var node = d3.select("svg")
+            .selectAll("g")
+            .data(graph_data.nodes)
+            .enter().append("g")
+            .attr("class", "node")
+            .call(drag(simulation));
+    
+        node.append("circle")
+            .attr("r", 10) // Increased radius for larger nodes
+            .attr("fill", "steelblue");
+    
+        // Append node labels
+        node.append("text")
+            .text(d => d.id)
+            .attr("dx", 12)
+            .attr("dy", 4);
+    
+        // Define drag behavior
+        function drag(simulation) {
+            function dragstarted(event) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+    
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+    
+            function dragended(event) {
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+    
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+    
+        // Update node and link positions on each tick
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+    
+            edgeText
+                .attr("dx", d => (d.source.x + d.target.x) / 2)
+                .attr("dy", d => (d.source.y + d.target.y) / 2);
+                
+            node.attr("transform", d => `translate(${d.x}, ${d.y})`);
+        });
+    </script>
+    
+
+</body>
+</html>

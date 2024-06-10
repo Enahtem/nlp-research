@@ -1,10 +1,26 @@
-5/6/2024 Meeting
+https://utoronto.zoom.us/my/geraldpenn (Password: 534798)
+https://www.overleaf.com/project/664f627fa6329f364a9ea020
 
-- Worked on Understanding and Building a RST Discourse Segmenter repository with an F1 Score of 97 compared to Soricut and Marcu's 85
-	- Is there online computing resource that I can access? Don't think I have the resources to train this.
-	- http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.135.pdf
+Grimm Fairy Tales
 
-- I made a very simple proof-of-concept program that takes in simple statements, gets entity/relations triplets and graphs them.
+Discourse Parsing
+Named Entity Recognition
+Relations Between Entities
+Visualization
+
+Every Frame A Pause Inspired Breakdowns
+
+NLP Research: Flowchart Fiction (Entity, Relation), Flowchart Argument (Claim, Warrant)
+
+
+Focus more on actions and events
+Like a historian
+Fabulas. Constructing a history of entities (Characters + Place + Time) + Relations
+
+Event Extraction
+Game Based Event Planning Fiction?
+
+Personal: https://arxiv.org/abs/1810.05682
 
 - Looking at how Fictional Discourse Units are Structured
 	- Still looking for more right now, but the main ones I see are just mainly things like
@@ -30,39 +46,51 @@ https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/32914/1/thesis
 http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.135.pdf
 
 
-Research Proposal: Iterative Knowledge Graphs from Fiction
-- Parsing: Parse Text into Discourse Units
-- Extraction: Extract Entities/Relations from Discourse Units
-- Evolution: Sequentially Updating Knowledge Graph with Entities/Relations
-
-Parsing: Professor Penn emphasized I should first work on parsing text into discourse units
-- I found a 'discourse-segmenter' GitHub repository that I think I got working, but when the model starts training, my laptop basically freezes
-- https://github.com/takshakpdesai/discourse-segmenter
-- Supposedly performs better (Section 4.1 of its paper) than Soricut/Marcu paper Professor Penn mentioned.
-
-Extraction: You mentioned we should discuss entity/relations of fictional text
-- What type of knowledge graph are we creating? https://arxiv.org/pdf/2310.04835.pdf
-- Found Cuong Xuan Chu's thesis on "Knowledge Extraction from Fictional Texts"
-- Involves Entyfi (Entity Extraction) and KnowFi (Relation Extraction)
-- Link to Entyfi: https://d5demos.mpi-inf.mpg.de/entyfi
-- Explain KnowFi: https://www.youtube.com/watch?v=GFTlUjdlreo
-
-Evolution: Kind of fuzzy on the part where you add the knolwedge unit (Entities/Relations) to Knowledge Graph one at a time
-- Dynamic Knowledge Graphs, Knowledge Graph Evolution. (Knowledge graph updates as new knowledge comes in)
-- How would a knowledge graph handle something like a plot twist or unreliable narrator in the fiction?
-
+https://github.com/takshakpdesai/discourse-segmenter
+https://arxiv.org/pdf/2310.04835.pdf
+https://aclanthology.org/2020.emnlp-demos.14.pdf
+https://openreview.net/pdf?id=8smkJ2ekBRC
 https://github.com/IBM/Grapher (Text -> Knowledge Graph)
 https://arxiv.org/pdf/1810.05682.pdf (Procedural Text -> Dynamic Knowledge Graph)
 https://arxiv.org/pdf/2104.04909.pdf (Dynamic Knowledge Graph)
 https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Web_Data_Mining/pubs/ESWC2022_Franz-Krause.pdf (Dynamic Knowledge Graph)
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8057770 (Dynamic Knowledge Graph)
-
-
-no meeting on monday
-7:00 pm Zoom Next next monday
-
 https://aclanthology.org/N03-1030.pdf (Soricut/Marcu)
 https://aclanthology.org/P17-2029.pdf
 https://github.com/tungngthanh/rst_parser/tree/main
 https://github.com/arne-cl/spade-parser/tree/master
 https://github.com/yizhongw/StageDP
+https://ieeexplore.ieee.org/abstract/document/8918013 (Event Extraction)
+
+---
+What is my ESROP Office?
+
+https://link.springer.com/referenceworkentry/10.1007/978-0-387-30164-8_680
+https://arxiv.org/pdf/2307.03130
+https://arxiv.org/pdf/2401.05777
+https://en.wikipedia.org/wiki/Abox#:~:text=TBox%20statements%20tend%20to%20be,within%20transactional%20systems%20within%20databases.
+https://en.wikipedia.org/wiki/Situation_calculus
+https://en.wikipedia.org/wiki/Event_calculus
+https://core.ac.uk/download/pdf/81991859.pdf
+https://www-formal.stanford.edu/jmc/sitcalc.pdf
+http://jmc.stanford.edu/articles/sitcalc.html
+
+https://arxiv.org/pdf/2307.03130
+https://www.doc.ic.ac.uk/~mpsha/ECExplained.pdf
+
+
+
+Plain Text (Brothers Grimm)
+RST Discourse Parsing
+Event Extraction
+Event Calculus
+ABox Knowledge Graph
+Graph Visualization
+
+Schedule
+
+
+Things to Do
+- Make Questions
+- Talk about what I did
+
