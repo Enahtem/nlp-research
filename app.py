@@ -6,6 +6,9 @@ import json
 
 app = Flask(__name__)
 
+def rst_parsing(text):
+    return text.split(".")
+
 def extract_knowledge(sentence):
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(sentence)
@@ -31,7 +34,7 @@ def extract_knowledge(sentence):
     return knowledge_units
 
 def generate_graph_data(text):
-    sentences = text.split(".")
+    sentences = rst_parsing(text)
     G = nx.DiGraph()
     
     for sentence in sentences:
@@ -40,8 +43,15 @@ def generate_graph_data(text):
             for triple in knowledge_units:
                 entity1, relation, entity2 = triple
                 G.add_edge(entity1, entity2, label=relation)
-
     return {"nodes": [{"id": node} for node in G.nodes], "links": [{"source": source, "target": target, "label": data["label"]} for source, target, data in G.edges(data=True)]}
+
+
+
+
+
+
+
+
 
 @app.route('/')
 def index():
